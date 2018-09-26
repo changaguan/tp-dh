@@ -8,10 +8,10 @@
 
   <div class="">
     <ul>
-      <li><a href="#">Registrarse</a></li>
-      <li><a href="#">Iniciar Sesion</a></li>
+      <li><a href="register.php">Registrarse</a></li>
+      <li><a href="log-in.php">Iniciar Sesion</a></li>
       <li><a href="#">Cerrar Sesion</a></li>
-      <li><a href="#">Carro</a></li>
+      <li><a href="carro.php">Carro</a></li>
     </ul>
   </div>
 </header>

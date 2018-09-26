@@ -2,9 +2,9 @@
 
 
   <ul>
-    <li><a href="#">Novedades</a></li>
-    <li><a href="#">Ofertas</a></li>
-    <li><a href="#">Hot Sale</a></li>
+    <li><a href="novedades.php">Novedades</a></li>
+    <li><a href="ofertas.php">Ofertas</a></li>
+    <li><a href="hotSales.php">Hot Sale</a></li>
     <li><a href="#">Tecnologia</a>
       <ul>
         <li><a href="#">Camaras</a></li>
