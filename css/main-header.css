@@ -34,4 +34,5 @@ header div .searchForm{
 header div .iconSearch{
   position: absolute;
   left: 80%;
+  top: 20px;
 }
