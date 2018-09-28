@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-light" style='background-color: #dd2525;'>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavBarPiola">
+  <button class="navbar-toggler icon-hamburger" type="button" data-toggle="collapse" data-target="#myNavBarPiola">
     <a class="navbar-brand" href="#"><span class="navbar-toggler-icon"></span></a>
   </button>
 
@@ -30,8 +30,13 @@
       </div>
       </li>
   </ul>
+  <div class="collapse navbar-collapse" id="myNavBarPiola">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active micuenta"><a class="nav-link" href="log-in.php">Mi cuenta</a></li> <!-- validacion log-in (ir a perfil / log-in) -->
+    </ul>
+  </div>
   <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary ml-auto" data-toggle="modal" data-target="#myModal">Login</button>
+  <button type="button" class="btn btn-primary ml-auto login" data-toggle="modal" data-target="#myModal">Login</button>
 </div>
 </nav>
 
@@ -63,5 +68,8 @@
   </ul>
 </nav>
 -->
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavBarPiola">
+  <a class="navbar-brand" href="#"><span class="navbar-toggler-icon"></span></a>
+</button>
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>

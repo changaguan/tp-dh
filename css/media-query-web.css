@@ -1,0 +1,23 @@
+@media (min-width: 768px) {
+.nav-item.active.micuenta{
+    display: none;
+  }
+
+.nav-item.active.web-user{
+  float: right;
+}
+
+  header div .iconSearch  {
+    display: none;
+  }
+
+  header div .searchForm{
+    display: block;
+  }
+
+
+
+  nav div .btn.btn-primary.ml-auto.login{
+    display: none;
+  }
+}
