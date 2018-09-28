@@ -1,0 +1,38 @@
+header{
+background-color: #dd2525;
+clear: both;
+overflow: hidden;
+}
+header nav{
+  display: none;
+}
+
+header nav button{
+  display: none;
+}
+
+header div{
+  height: 130px;
+  overflow: hidden;
+}
+
+header div .logo{
+  position: absolute;
+  left: 35%;
+  text-align: center;
+}
+
+header{
+  display: flex;
+  justify-content: space-between;
+}
+
+header div .searchForm{
+  display: none;
+}
+
+header div .iconSearch{
+  position: absolute;
+  left: 80%;
+  top: 20px;
+}

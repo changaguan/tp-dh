@@ -1,0 +1,44 @@
+footer{
+  clear: both;
+  width: 100%;
+  background: #333333;
+  display: flex;
+  float: left;
+  text-align: justify;
+  color: white;
+}
+
+footer div{
+  display: block;
+  margin: auto;
+}
+
+footer ul li a img{
+  width: 40px;
+}
+
+footer ul li{
+  display: block;
+}
+
+footer ul li .icon{
+  float: left;
+  margin: auto;
+}
+
+footer ul{
+  display: block;
+  margin: auto;
+  clear: both;
+}
+
+footer ul li a{
+  text-decoration: none;
+  color: white;
+}
+
+footer ul .Categorias{
+  display: none;
+  text-decoration: none;
+  color: white;
+}

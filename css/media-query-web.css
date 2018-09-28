@@ -1,0 +1,5 @@
+@media (min-width: 768px) {
+@import "web-main-header.css";
+@import "web-main-nav.css";
+@import "web-main-footer.css";
+}

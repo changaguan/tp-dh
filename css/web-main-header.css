@@ -1,0 +1,15 @@
+header div .iconSearch  {
+  display: none;
+}
+
+header div .searchForm{
+  display: block;
+}
+
+nav div .btn.btn-primary.ml-auto.login{
+  display: none;
+}
+
+.nav-item.active.web-user{
+  float: right;
+}
