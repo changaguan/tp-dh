@@ -1,0 +1,19 @@
+.btn-primary {
+  background-color: #CB472B;
+  border-color: #B84229;
+}
+
+.btn {
+  border-radius: 15px;
+}
+
+.btn:hover {
+  background-color: #AB432C;
+  border-color: #B84229;
+}
+.auth-form-body {
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-color: #f5f5f5;
+  border-radius: 5px;
+}

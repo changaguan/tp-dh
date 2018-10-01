@@ -1,0 +1,44 @@
+header{
+  height: 130px;
+  width: 100%;
+  background-color: #C84C4E;
+
+}
+
+header div{
+  justify-content: space-between;
+  display: block;
+}
+
+.main-header{
+  background-color: #c84c4e;
+  overflow: hidden;
+}
+
+.main-logo {
+	width: 200px;
+	position: absolute;
+  top: 50px;
+	left: 55%;
+	transform: translate(-50%, -60px);
+}
+
+.header-nav{
+  overflow: hidden;
+}
+
+.search-icon{
+  width: 40px;
+	position: absolute;
+  top: 100px;
+	left: 89%;
+	transform: translate(-50%, -60px);
+}
+
+.hamburger-icon{
+  width: 40px;
+	position: absolute;
+  top: 100px;
+	left: 8%;
+	transform: translate(-50%, -60px);
+}
