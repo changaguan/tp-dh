@@ -1,3 +1,7 @@
+body{
+  box-sizing: border-box;
+}
+
 header{
   height: 130px;
   width: 100%;
@@ -18,7 +22,7 @@ header div{
 .main-logo {
 	width: 200px;
 	position: absolute;
-  top: 50px;
+  top: 60px;
 	left: 55%;
 	transform: translate(-50%, -60px);
 }
@@ -41,4 +45,34 @@ header div{
   top: 100px;
 	left: 8%;
 	transform: translate(-50%, -60px);
+}
+
+.search-bar{
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .main-logo {
+  	width: 100px;
+  	position: absolute;
+    top: 60px;
+  	left: 100px;
+  	transform: translate(-50%, -60px);
+  }
+
+  .hamburger-icon{
+    display: none;
+  }
+
+  .search-icon{
+    display: none;
+  }
+
+  .search-bar{
+    display: block;
+    position: absolute;
+    top: 70px;
+    left: 310px;
+  }
+
 }

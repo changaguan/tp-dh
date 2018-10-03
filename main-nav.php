@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light" style='background-color: #dd2525;'>
+<nav class="navbar navbar-expand-lg navbar-light" style='background-color: #c84c4e;'>
 
   <button class="navbar-toggler icon-hamburger" type="button" data-toggle="collapse" data-target="#myNavBarPiola">
     <a class="navbar-brand" href="#"><span class="navbar-toggler-icon"></span></a>
@@ -36,7 +36,7 @@
     </ul>
   </div>
   <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary ml-auto login" data-toggle="modal" data-target="#myModal">Login</button>
+  <button type="button" class="btn btn-primary ml-auto login" data-toggle="modal" data-target="#myModal"><a href="login.php" style="color:white;">Login</a></button>
 </div>
 </nav>
 

@@ -1,30 +1,43 @@
-<header>
-
-  <div class="">
-    <p class="logo"><a class="logo" href="index.php"><img class="logo" src="images/dh-logo.png" alt="Logo" width="150px"></a></p>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <header>
+<div class="main-header">
+  <div class="main-logo">
+    <p><a href="index.php"><img class="logo" src="images/dh-logo.png" alt="logo" width="150px"></a></p>
   </div>
 
-  <div class="">
-    <form class="form-inline searchForm" action="index.php" method="post">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><img src="images/icon-search.jpg" alt="iconSearch" width="20px"></button>
-    </form>
-    <img class="iconSearch" src="images/icon-search.jpg" alt="iconSearch" width="40px" style="float:right;">
-    <img src="images/icon-user.png" alt="user" width="25px" style="display:none;">
-  </div>
+  <nav class="header-nav">
+    <div class="hamburger-icon">
+      <button type="button" name="button"><img src="images/hamburger-menu.jpg" alt="hamburger-menu" width="40px"></button>
+    </div>
+
+    <div class="search-bar">
+      <form class="form-inline searchForm" action="index.php" method="post">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><img src="images/icon-search.jpg" alt="iconSearch" width="20px"></button>
+      </form>
+    </div>
+
+    <div class="search-icon">
+      <button type="button" name="button"><img src="images/icon-search.jpg" alt="search" width="40px"></button>
+    </div>
+  </nav>
+</div>
 
 
+    </header>
 
-<nav class="navbar navbar-expand-lg navbar-light" style='background-color: #dd2525;'>
-  <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myacc">
-    <a class="navbar-brand" href="#"><span class="navbar-toggler-icon"></span></a>
-  </button>-->
-  <div class="collapse navbar-collapse sesion" id="myacc">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active web-user"><a class="nav-link" href="register.php">Registrarse</a></li>
-        <li class="nav-item active web-user"><a class="nav-link" href="log-in.php">Iniciar Sesion</a></li>
-        <li class="nav-item active web-user"><a class="nav-link" href="carro.php">Carro</a></li>
-    </ul>
-  </div>
-</nav>
-</header>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+
+  </body>
+</html>
