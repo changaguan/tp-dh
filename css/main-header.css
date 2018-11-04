@@ -36,3 +36,7 @@ header div .iconSearch{
   left: 80%;
   top: 20px;
 }
+
+header div .sesion{
+  display: none;
+}

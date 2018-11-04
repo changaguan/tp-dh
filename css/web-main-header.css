@@ -13,3 +13,9 @@ nav div .btn.btn-primary.ml-auto.login{
 .nav-item.active.web-user{
   float: right;
 }
+
+header div .sesion{
+  position: absolute;
+  left: 60%;
+  top: 20px;
+}

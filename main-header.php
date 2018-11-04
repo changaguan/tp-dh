@@ -21,15 +21,23 @@
 
     <div class="search-bar">
       <form class="form-inline searchForm" action="index.php" method="post">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><img src="images/icon-search.jpg" alt="iconSearch" width="20px"></button>
+        <input class="" type="search" placeholder="Search" aria-label="Search">
+        <button class="" type="submit"><img src="images/icon-search.jpg" alt="iconSearch" width="20px"></button>
       </form>
     </div>
 
     <div class="search-icon">
       <button type="button" name="button"><img src="images/icon-search.jpg" alt="search" width="40px"></button>
     </div>
+
+    <div class="sesion">
+      <ul>
+        <li><a href="a.php">Iniciar sesión</a></li>
+      </ul>
+    </div>
   </nav>
+
+
 </div>
 
 
