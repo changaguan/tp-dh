@@ -1,4 +1,11 @@
 <?php
+require_once 'connection.php';
+//Traer la DB
+$stmt = $conn->prepare("SELECT * FROM users");
+
+$stmt->execute();
+$results = $stmt->fetchAll(PDO::FETCH_OBJ);
+
 $usuario = "";
 $contrasena = "";
 $errorUsuario = "";

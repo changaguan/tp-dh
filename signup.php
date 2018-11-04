@@ -1,10 +1,13 @@
 <?php
+require_once 'connection.php';
 
 $usuario = "";
 $nombre = "";
 $email = "";
 $contrasena = "";
 $repcontrasena = "";
+$avatar="";
+$pais="";
 $errorUsuario = "";
 $errorNombre = "";
 $errorEmail = "";
@@ -13,12 +16,13 @@ $errorRepContrasena = "";
 $errorAvatar = "";
 
 if ($_POST) {
-
 	$usuario = trim($_POST['userName']);
 	$nombre = trim($_POST['userFirstName']);
 	$email = trim($_POST['userEmail']);
 	$contrasena = trim($_POST['userPassword']);
 	$repcontrasena = trim($_POST['userRepeatPassword']);
+	$avatar = trim($_POST['userAvatar']);
+	$pais = trim($_POST['userCountry']);
 
 	if(empty($usuario)) {
 		$errorUsuario = "Debe elegir un nombre de usuario.<br>";
@@ -50,9 +54,10 @@ if ($_POST) {
 
 	if ($contrasena != $repcontrasena) {
 		$errorRepContrasena = "Las contraseñas no coinciden.<br>";
+
 	}
 
-	/* if($_FILES['userAvatar']['error'] == UPLOAD_ERR_OK) {
+	if($_FILES['userAvatar']['error'] == UPLOAD_ERR_OK) {
 		$desde = $_FILES['userAvatar']['tmp_name'];
 		$archivo = uniqid();
 		$ext = pathinfo($_FILES['userAvatar']['name'],PATHINFO_EXTENSION);
@@ -65,12 +70,35 @@ if ($_POST) {
 	}else{
 		$errorImg = "No se pudo cargar la imagen.";
 	}
-*/
+
+
 	if (empty($errorUsuario) && empty($errorNombre) && empty($errorEmail) && empty($errorContrasena) &&empty($errorRepContrasena)) {
-		header("location: exito.php"); exit;
+		$stmt = $conn->prepare("
+	    INSERT INTO users (username, name, email, password, avatar, country)
+	      VALUES (:username, :name, :email, :password, :avatar, :country)
+	      ");
+	  $stmt->bindValue(':username', $usuario, PDO::PARAM_STR);
+	  $stmt->bindValue(':name', $nombre, PDO::PARAM_STR);
+	  $stmt->bindValue(':email', $email, PDO::PARAM_INT);
+	  $stmt->bindValue(':password', $contrasena, PDO::PARAM_STR);
+	 	$stmt->bindValue(':avatar', $avatar, PDO::PARAM_STR);
+	  $stmt->bindValue(':country', $pais, PDO::PARAM_STR);
+
+	var_dump($stmt);
+	  $stmt->execute();
+
+		// header("location: exito.php"); exit;
 	}
 
 }
+
+
+
+
+
+
+
+
  ?>
 
 <!DOCTYPE html>
@@ -107,31 +135,31 @@ if ($_POST) {
 
 					<div class="form-group">
 						<label for="">Nombre de usuario:</label>
-						<input type="text" value="<?php echo $usuario; ?>" class="form-control" name="userName">
+						<input type="text" value="<?php if (!$errorUsuario){echo $usuario;}else{echo "";};?>" class="form-control" name="userName">
 						<span style="color:red; font-size:12px;"> <?php echo $errorUsuario; ?> </span>
 					</div>
 
 					<div class="form-group">
 						<label for="">Nombre:</label>
-						<input type="text" value="<?php echo $nombre; ?>" class="form-control" name="userFirstName">
+						<input type="text" value="<?php if (!$errorNombre){echo $nombre;}else{echo "";}; ?>" class="form-control" name="userFirstName">
 						<span style="color:red; font-size:12px;"> <?php echo $errorNombre; ?> </span>
 					</div>
 
 					<div class="form-group">
 						<label for="">Correo electrónico:</label>
-						<input type="email" value="<?php echo $email; ?>" class="form-control" name="userEmail" placeholder="user@email.com">
+						<input type="email" value="<?php if (!$errorEmail){echo $email;}else{echo "";}; ?>" class="form-control" name="userEmail" placeholder="user@email.com">
 						<span style="color:red; font-size:12px;"> <?php echo $errorEmail; ?> </span>
 					</div>
 
 					<div class="form-group">
 						<label for="">Contraseña:</label>
-						<input type="password" class="form-control" name="userPassword">
+						<input type="password" class="form-control" name="userPassword" value="<?php echo ""; ?>">
 						<span style="color:red; font-size:12px;"> <?php echo $errorContrasena; ?> </span>
 					</div>
 
 					<div class="form-group">
 						<label for="">Repite contraseña:</label>
-						<input type="password" class="form-control" name="userRepeatPassword">
+						<input type="password" class="form-control" name="userRepeatPassword" value="<?php echo ""; ?>">
 						<span style="color:red; font-size:12px;"> <?php echo $errorRepContrasena; ?> </span>
 						<br>
 					</div>

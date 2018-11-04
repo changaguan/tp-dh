@@ -32,7 +32,7 @@
   </ul>
   <div class="collapse navbar-collapse" id="myNavBarPiola">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active micuenta"><a class="nav-link" href="log-in.php">Mi cuenta</a></li> <!-- validacion log-in (ir a perfil / log-in) -->
+      <li class="nav-item active micuenta"><a class="nav-link" href="login.php">Mi cuenta</a></li> <!-- validacion log-in (ir a perfil / log-in) -->
     </ul>
   </div>
   <!-- Button trigger modal -->
