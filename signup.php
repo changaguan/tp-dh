@@ -14,6 +14,7 @@ $errorEmail = "";
 $errorContrasena = "";
 $errorRepContrasena = "";
 $errorAvatar = "";
+$hasta="";
 
 if ($_POST) {
 	$usuario = trim($_POST['userName']);
@@ -21,7 +22,6 @@ if ($_POST) {
 	$email = trim($_POST['userEmail']);
 	$contrasena = trim($_POST['userPassword']);
 	$repcontrasena = trim($_POST['userRepeatPassword']);
-	$avatar = trim($_POST['userAvatar']);
 	$pais = trim($_POST['userCountry']);
 
 	if(empty($usuario)) {
@@ -54,8 +54,21 @@ if ($_POST) {
 
 	if ($contrasena != $repcontrasena) {
 		$errorRepContrasena = "Las contraseñas no coinciden.<br>";
-
 	}
+
+	if(empty($errorUsuario) && empty($errorNombre) && empty($errorEmail)){
+      //puedo encriptar la contraseña
+      $contrasena = password_hash($contrasena,PASSWORD_DEFAULT);
+
+      //puedo verificar si la contraseña es la misma que la que ya tengo
+      //password_verify($contrasena,$passHasheada);
+
+      //puedo agradecer por completar el formulario de manera valida
+      //echo "<h1>Registro exitoso</h1>";
+
+      //puedo redirigir a otro lugar del sitio
+      //header('Location:home.php');
+		}
 
 	if($_FILES['userAvatar']['error'] == UPLOAD_ERR_OK) {
 		$desde = $_FILES['userAvatar']['tmp_name'];
@@ -71,8 +84,10 @@ if ($_POST) {
 		$errorImg = "No se pudo cargar la imagen.";
 	}
 
+	$avatar = trim($hasta);
 
-	if (empty($errorUsuario) && empty($errorNombre) && empty($errorEmail) && empty($errorContrasena) &&empty($errorRepContrasena)) {
+
+	if (empty($errorUsuario) && empty($errorNombre) && empty($errorEmail) && empty($errorContrasena) &&empty($errorRepContrasena&&empty($errorAvatar))) {
 		$stmt = $conn->prepare("
 	    INSERT INTO users (username, name, email, password, avatar, country)
 	      VALUES (:username, :name, :email, :password, :avatar, :country)
@@ -84,20 +99,12 @@ if ($_POST) {
 	 	$stmt->bindValue(':avatar', $avatar, PDO::PARAM_STR);
 	  $stmt->bindValue(':country', $pais, PDO::PARAM_STR);
 
-	var_dump($stmt);
 	  $stmt->execute();
 
 		// header("location: exito.php"); exit;
 	}
 
 }
-
-
-
-
-
-
-
 
  ?>
 
