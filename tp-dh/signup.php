@@ -80,9 +80,9 @@ if ($_POST) {
 		}else{
 			$errorImg = "Formato inválido de imagen.";
 		}
-	}else{
+		}else{
 		$errorImg = "No se pudo cargar la imagen.";
-	}
+		}
 
 	$avatar = trim($hasta);
 
@@ -92,6 +92,7 @@ if ($_POST) {
 	    INSERT INTO users (username, name, email, password, avatar, country)
 	      VALUES (:username, :name, :email, :password, :avatar, :country)
 	      ");
+
 	  $stmt->bindValue(':username', $usuario, PDO::PARAM_STR);
 	  $stmt->bindValue(':name', $nombre, PDO::PARAM_STR);
 	  $stmt->bindValue(':email', $email, PDO::PARAM_INT);
@@ -101,7 +102,7 @@ if ($_POST) {
 
 	  $stmt->execute();
 
-		header("location: signsuccess.php"); exit;
+		header("location: exito.php"); exit;
 	}
 
 }
@@ -113,7 +114,7 @@ if ($_POST) {
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Registrate</title>
+    <title></title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/forms.css">
@@ -194,13 +195,10 @@ if ($_POST) {
 								<option>Venezuela</option>
 							</select>
 
-						<br><br>
-						<label><input type="checkbox"> Acepto los términos y condiciones.</label>
-						<br><br>
-						
+						<br><br><br>
 						<div class="row justify-content-center">
-							<button type="submit" class="btn btn-primary btn-lg">Registrarse</button>
-							<br>
+						<button type="submit" class="btn btn-primary btn-lg">Registrarse</button>
+						<br>
 						</div>
 
 					</form>
@@ -216,7 +214,7 @@ if ($_POST) {
     <?php include('aside.php') ?>
     <!-- --------------- -->
 
-    <!-- Footer -->
+    <!-- Header -->
     <?php include('main-footer.php') ?>
     <!-- --------------- -->
 

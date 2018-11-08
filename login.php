@@ -1,5 +1,5 @@
 <?php
-require_once 'connection.php';
+/**require_once 'connection.php';
 //Traer la DB
 $stmt = $conn->prepare("SELECT * FROM users");
 
@@ -16,31 +16,15 @@ if ($_POST) {
 		header("location: bienvenido.php"); exit;
 	}
 
-}
-/*
-if(!isset($_SESSION))
-{
-    session_start();
-    $usuario= $_SESSION['usuario'];
-
-    header("Location: bienvenido.php");
-
-}else
-{
-    header("Location: login.php");
-    exit;
-}
-
+} */
 ?>
-*/
- ?>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title></title>
+    <title>Iniciar Sesión</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/forms.css">
@@ -70,15 +54,19 @@ if(!isset($_SESSION))
 
      					<div class="form-group">
      						<label for="">Nombre de usuario:</label>
-     						<input type="text" value="<?php echo $usuario; ?>" class="form-control" name="userName">
-     						<span style="color:red; font-size:12px;"> <?php echo $errorUsuario; ?> </span>
+     						<input type="text" value="<?php /** echo $usuario; */?>" class="form-control" name="userName">
+     						<span style="color:red; font-size:12px;"> <?php /** echo $errorUsuario;*/ ?> </span>
      					</div>
 
      					<div class="form-group">
      						<label for="">Contraseña:</label>
      						<input type="password" class="form-control" name="userPassword">
-     						<span style="color:red; font-size:12px;"> <?php echo $errorContrasena; ?> </span>
+     						<span style="color:red; font-size:12px;"> <?php /** echo $errorContrasena;*/ ?> </span>
      					</div>
+							
+							<a href= "">¿Ha olvidado su contraseña?</a>
+							<br><br>
+							<label><input type="checkbox"> Mantener mi sesión iniciada.</label>
 
               <br><br>
 
@@ -100,7 +88,7 @@ if(!isset($_SESSION))
     <?php include('aside.php') ?>
     <!-- --------------- -->
 
-    <!-- Header -->
+    <!-- Footerr -->
     <?php include('main-footer.php') ?>
     <!-- --------------- -->
 
