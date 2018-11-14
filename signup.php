@@ -51,6 +51,7 @@ if ($_POST) {
 // $errorRepContrasena = "";
 // $errorAvatar = "";
 // $hasta="";
+// $expresion = '/^[A-Z]{2}-[0-9]{4}$/';
 
 
 // 	$usuario = trim($_POST['userName']);
@@ -64,7 +65,10 @@ if ($_POST) {
 // 		$errorUsuario = "Debe elegir un nombre de usuario.<br>";
 // 	}else if(strlen($usuario) < 4 || strlen($usuario) > 8) {
 // 		$errorUsuario = "El usuario debe tener entre 4 y 8 caracteres.<br>";
-// 	}
+//	}else if(preg_match($expresion, $usuario)) {
+//		$errorUsuario = "El usuario solo debe contener letras y/o números.<br>";
+//	}
+
 //
 // 	if(empty($nombre)) {
 // 		$errorNombre = "El nombre es necesario.<br>";
@@ -230,7 +234,7 @@ if ($_POST) {
 								</select>
 
 							<br><br>
-							<label><input type="checkbox"> Acepto los términos y condiciones.</label>
+							<label><input type="checkbox"> Acepto los <a href= "terminosycondiciones.php">términos y condiciones</a>.</label>
 							<br><br>
 
 							<div class="row justify-content-center">
