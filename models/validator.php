@@ -36,9 +36,10 @@ class Validator {
 		if ($informacion["password"] == "") {
 			$errores["password"] = "Contraseña no puede estar vacío.";
 		} else if ($usuario != NULL) {
+
 			//El usuario existe y puso contraseña
 			// Tengo que validar que la contraseño que ingreso sea valida
-			if (password_verify($informacion["password"], $usuario->getPassword()) == false) {
+			if ( !password_verify($informacion["password"], $usuario->getPassword()) ) {
 				$errores["password"] = "Contraseña inválido.";
 			}
 		}

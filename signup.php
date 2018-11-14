@@ -1,10 +1,6 @@
 <?php
 require_once("config.php");
 
-$auth = new Auth();
-$validator = new Validator();
-$db = new DB();
-
 $usernameDefault = "";
 $nameDefault = "";
 $emailDefault = "";

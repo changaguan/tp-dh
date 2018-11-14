@@ -58,10 +58,13 @@ class DB{
 
 		$query->execute();
 
-		$usuario = $query->fetch();
+		$userDB = $query->fetch(PDO::FETCH_ASSOC);
 
-		if ($usuario) {
-			$usuario = new User($usuario["id"], $usuario["username"], $usuario["name"], $usuario["email"], $usuario["password"],$usuario["avatar"],$usuario["country"]);
+		if ($userDB) {
+
+			$usuario = new User($userDB["username"], $userDB["name"], $userDB["email"], $userDB["password"], $userDB["country"], $userDB["id"]);
+			$usuario->setAvatar($userDB["avatar"]);
+			
 			return $usuario;
 		} else {
 			return NULL;

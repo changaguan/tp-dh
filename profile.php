@@ -1,4 +1,8 @@
-<?php require_once("config.php"); ?>
+<?php require_once("config.php");
+
+// $user = $db->traerPorUsuario($_GET["username"]);
+$user = $db->traerPorMail($_SESSION["logueado"]);
+?>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -25,18 +29,19 @@
               <div class="perfilusuario">
                   <div class="row">
                       <div class="col-md-8">
-                        ¡Bienvenido Nombre de Usuario!
+                        ¡Bienvenido <?php echo $user->getName();?>!
                         <br>
                         <a href= "editarperfil.php">Editar Perfil</a>
                       </div>
                       <div class="col-md-4">
+
                           <div class="imagenperfil" style="background-image: url('images/default-profile.jpg')"></div>
                       </div>
                   </div>
 
               </div>
               <div class="opciones">
-
+<img src="avatars/<?php echo $user->getAvatar() ?>" width="100">
                   <div class="opcion">
                     <a href= "">Notificaciones</a>
                   </div>
