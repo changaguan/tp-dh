@@ -33,7 +33,7 @@ if ($_POST) {
       //Quiere que lo recuerde
       $auth->recordame($_POST["email"]);
     }
-        header("Location:index.php");
+        header("Location:profile.php");
   }
 }
 
@@ -74,14 +74,14 @@ if ($_POST) {
 
      					<div class="form-group">
      						<label for="">Nombre de usuario / Email:</label>
-     						<input type="text" value="<?php /** echo $usuario; */?>" class="form-control" name="email">
-     						<span style="color:red; font-size:12px;"> <?php /** echo $errorUsuario;*/ ?> </span>
+     						<input type="text" value="<?php  /*echo $usuario;*/ ?>" class="form-control" name="email">
+     						<span style="color:red; font-size:12px;"> <?php  if(isset($errores["mail"])){echo $errores["mail"];} ?> </span>
      					</div>
 
      					<div class="form-group">
      						<label for="">Contraseña:</label>
      						<input type="password" class="form-control" name="password">
-     						<span style="color:red; font-size:12px;"> <?php /** echo $errorContrasena;*/ ?> </span>
+     						<span style="color:red; font-size:12px;"> <?php  if(isset($errores["password"])){echo $errores["password"];} ?> </span>
      					</div>
 
 							<a href= "">¿Ha olvidado su contraseña?</a>

@@ -10,9 +10,9 @@ class Validator {
 			$informacion[$clave] = trim($valor);
 		}
 
-/**
+
 		if ($informacion["email"] == "") {
-			$errores["email"] = "Email no puede estar vacío.";
+			$errores["mail"] = "Email no puede estar vacío.";
 		}
 		else if (filter_var($informacion["email"], FILTER_VALIDATE_EMAIL) == false) {
 			$errores["mail"] = "Email inválido.";
@@ -21,17 +21,18 @@ class Validator {
 		}
 
 		$usuario = $db->traerPorMail($informacion["email"]);
-**/
 
-if ($informacion["username"] == "") {
-	$errores["username"] = "Usuario no puede estar vacío.";
-}
-else if (filter_var($informacion["username"], FILTER_VALIDATE_EMAIL) == false) {
-	$errores["username"] = "Usuario inválido.";
-} else if ($db->traerPorUsuario($informacion["username"]) == NULL) {
-	$errores["username"] = "Usuario inválido.";
-}
-$usuario = $db->traerPorUsuario($informacion["username"]);
+
+// if ($informacion["username"] == "") {
+// 	$errores["username"] = "Usuario no puede estar vacío.";
+// }
+// else if (filter_var($informacion["username"], FILTER_VALIDATE_EMAIL) == false) {
+// 	$errores["username"] = "Usuario inválido.";
+// } else if ($db->traerPorUsuario($informacion["username"]) == NULL) {
+// 	$errores["username"] = "Usuario inválido.";
+// }
+
+// $usuario = $db->traerPorUsuario($informacion["username"]);
 		if ($informacion["password"] == "") {
 			$errores["password"] = "Contraseña no puede estar vacío.";
 		} else if ($usuario != NULL) {

@@ -31,7 +31,8 @@ if ($_POST) {
 		$usuario->setAvatar($imageName);
 		$username = $db->guardarUsuario($usuario);
 
-		header("Location:profile.php?username=" . $username->getUsername());exit;
+		header("location:signsuccess.php");exit;
+		//header("Location:profile.php?username=" . $username->getUsername());exit;
 	}
 
 // $usuario = "";
@@ -207,7 +208,7 @@ if ($_POST) {
 
 						<div class="form-group">
 							<label for="">Repite contraseña:</label>
-							<input type="password" class="form-control" name="userRepeatPassword" value="<?php echo ""; ?>">
+							<input type="password" class="form-control" name="cpassword" value="<?php echo ""; ?>">
 							<span style="color:red; font-size:12px;"> <?php if(isset($errores["cpassword"])){echo $errores["cpassword"];} ; ?> </span>
 							<br>
 						</div>

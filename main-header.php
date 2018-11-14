@@ -9,7 +9,80 @@
   </head>
   <body>
     <header>
-<div class="main-header">
+
+
+      <div class="main-header-web">
+        <nav class="navbar navbar-expand-lg navbar-light" style='background-color: #c84c4e;'>
+          <div class="main-logo-web">
+            <p><a href="index.php"><img class="logo" src="images/dh-logo.png" alt="logo" width="75px"></a></p>
+          </div>
+        <div class="collapse navbar-collapse" id="myNavBarPiola">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active"><a class="nav-link" href="novedades.php">Novedades</a></li>
+              <li class="nav-item active"><a class="nav-link" href="ofertas.php">Ofertas</a></li>
+              <li class="nav-item active"><a class="nav-link" href="hotSales.php">Hot Sale</a></li>
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="myDropDown" data-toggle="dropdown">Tecnologia</a>
+              <div class="dropdown-menu" aria-labelledby="myDropDown">
+                <a class="dropdown-item" href="#">Camaras</a>
+                <a class="dropdown-item" href="#">Celulares</a>
+                <a class="dropdown-item" href="#">Gaming</a>
+                <a class="dropdown-item" href="#">Informatica</a>
+                <a class="dropdown-item" href="#">Tv</a>
+              </div>
+              </li>
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="myDropDown" data-toggle="dropdown">Hogar</a>
+              <div class="dropdown-menu" aria-labelledby="myDropDown">
+                <a class="dropdown-item" href="#">Aires y Calefacciones</a>
+                <a class="dropdown-item" href="#">Cocina</a>
+                <a class="dropdown-item" href="#">Lavado</a>
+                <a class="dropdown-item" href="#">Oficina</a>
+              </div>
+              </li>
+          </ul>
+        </div>
+
+          <div class="d-flex justify-content-center search-bar-web">
+            <form class="form-inline searchForm" action="index.php" method="post">
+              <input class="" type="search" placeholder="Search" aria-label="Search">
+              <button class="" type="submit"><img src="images/icon-search.jpg" alt="iconSearch" width="20px"></button>
+            </form>
+          </div>
+
+          <div class="d-flex justify-content-end" id="myNavBarPiola">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="myDropDown" data-toggle="dropdown">Mi Cuenta <img src="<?php if($auth->estaLogueado()):?><?php else: ?>images/default-profile.jpg<?php endif; ?>" width="35px"></a>
+                <div class="dropdown-menu" aria-labelledby="myDropDown">
+                  <?php if($auth->estaLogueado()): ?>
+                    <a class="dropdown-item" href="profile.php?username=">Mi perfil</a>
+                    <a class="dropdown-item" href="settings.php">Configuraciones</a>
+                    <a class="dropdown-item" href="logout.php">Log Out</a>
+                  <?php else: ?>
+                    <a class="dropdown-item" href="login.php">Log In</a>
+                    <a class="dropdown-item" href="signup.php">Sign Up</a>
+                  <?php endif; ?>
+                </div>
+
+
+      </div>
+
+      <div class="main-header-mobile">
+        <div class="hamburger-icon">
+          <button type="button" name="button"><img src="images/hamburger-menu.jpg" alt="hamburger-menu" width="40px"></button>
+
+        </div>
+
+
+      </div>
+
+
+
+
+
+
+<!-- <div class="main-header">
   <div class="main-logo">
     <p><a href="index.php"><img class="logo" src="images/dh-logo.png" alt="logo" width="100px"></a></p>
   </div>
@@ -20,11 +93,9 @@
     </div>
 
     <nav class="navbar navbar-expand-lg navbar-light" style='background-color: #c84c4e;'>
-
       <button class="navbar-toggler icon-hamburger" type="button" data-toggle="collapse" data-target="#myNavBarPiola">
         <a class="navbar-brand" href="#"><span class="navbar-toggler-icon"></span></a>
       </button>
-
     <div class="collapse navbar-collapse" id="myNavBarPiola">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active"><a class="nav-link" href="novedades.php">Novedades</a></li>
@@ -62,23 +133,25 @@
       <div class="collapse navbar-collapse" id="myNavBarPiola">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active micuenta"><a class="nav-link" href="login.php">Mi cuenta</a></li> <!-- validacion log-in (ir a perfil / log-in) -->
-        </ul>
-      </div>
+        <!-- </ul>
+      </div> -->
       <!-- Button trigger modal -->
-      <?php if($auth->estaLogueado()): ?>
+
+
+      <!-- <?php if($auth->estaLogueado()): ?>
         <button type="button" class="btn btn-primary ml-auto login" data-toggle="modal" data-target="#myModal"><a href="logout.php" style="color:white;">Log Out</a></button>
       <?php else: ?>
       <button type="button" class="btn btn-primary ml-auto login" data-toggle="modal" data-target="#myModal"><a href="login.php" style="color:white;">Log In</a></button>
       <button type="button" class="btn btn-primary ml-auto login" data-toggle="modal" data-target="#myModal"><a href="signup.php" style="color:white;">Sign Up</a></button>
     <?php endif; ?>
     </div>
-    </nav>
+    </nav> -->
 
 
 
-    <div class="search-icon">
+    <!--<div class="search-icon">
       <button type="button" name="button"><img src="images/icon-search.jpg" alt="search" width="40px"></button>
-    </div>
+    </div> -->
 
     <!-- <div class="sesion">
       <ul>
@@ -104,7 +177,7 @@
 
 
 
-    
+
   </nav>
 
 

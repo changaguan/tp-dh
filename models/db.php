@@ -46,7 +46,7 @@ class DB{
 		$usuariosFormatoClase = [];
 
 		foreach ($usuariosFormatoArray as $usuario) {
-			$usuariosFormatoClase[] = new Usuario($usuario["id"], $usuario["username"], $usuario["name"], $usuario["email"], $usuario["password"],$usuario["avatar"],$usuario["country"]);
+			$usuariosFormatoClase[] = new User($usuario["id"], $usuario["username"], $usuario["name"], $usuario["email"], $usuario["password"],$usuario["avatar"],$usuario["country"]);
 		}
 
 		return $usuariosFormatoClase;
@@ -58,9 +58,9 @@ class DB{
 
 		$query->execute();
 
-		$usuarioFormatoArray = $query->fetch();
+		$usuario = $query->fetch();
 
-		if ($usuarioFormatoArray) {
+		if ($usuario) {
 			$usuario = new User($usuario["id"], $usuario["username"], $usuario["name"], $usuario["email"], $usuario["password"],$usuario["avatar"],$usuario["country"]);
 			return $usuario;
 		} else {
