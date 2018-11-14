@@ -17,6 +17,26 @@ if ($_POST) {
 	}
 
 } */
+require_once("config.php");
+
+if($auth->estaLogueado()){
+  header("location:index.php");exit;
+}
+
+$errores = [];
+if ($_POST) {
+  $errores = $validator->validarLogin($_POST,$db);
+  if (count($errores) == 0) {
+    // LOGUEAR
+        $auth->loguear($_POST["email"]);
+    if (isset($_POST["recordame"])) {
+      //Quiere que lo recuerde
+      $auth->recordame($_POST["email"]);
+    }
+        header("Location:index.php");
+  }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -53,20 +73,20 @@ if ($_POST) {
    					<form action="login.php" method="POST" enctype="multipart/form-data">
 
      					<div class="form-group">
-     						<label for="">Nombre de usuario:</label>
-     						<input type="text" value="<?php /** echo $usuario; */?>" class="form-control" name="userName">
+     						<label for="">Nombre de usuario / Email:</label>
+     						<input type="text" value="<?php /** echo $usuario; */?>" class="form-control" name="email">
      						<span style="color:red; font-size:12px;"> <?php /** echo $errorUsuario;*/ ?> </span>
      					</div>
 
      					<div class="form-group">
      						<label for="">Contraseña:</label>
-     						<input type="password" class="form-control" name="userPassword">
+     						<input type="password" class="form-control" name="password">
      						<span style="color:red; font-size:12px;"> <?php /** echo $errorContrasena;*/ ?> </span>
      					</div>
-							
+
 							<a href= "">¿Ha olvidado su contraseña?</a>
 							<br><br>
-							<label><input type="checkbox"> Mantener mi sesión iniciada.</label>
+							<label><input type=  "checkbox"> Mantener mi sesión iniciada.</label>
 
               <br><br>
 

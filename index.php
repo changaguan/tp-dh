@@ -1,3 +1,5 @@
+<?php require_once("config.php"); ?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -15,7 +17,7 @@
     <!-- --------------- -->
 
     <!-- Menu-Bar -->
-    <?php include('main-nav.php') ?>
+    <!-- <?php // include('main-nav.php') ?> -->
     <!-- --------------- -->
 
     <br>

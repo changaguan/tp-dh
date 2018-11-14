@@ -1,0 +1,120 @@
+body{
+  box-sizing: border-box;
+}
+
+header{
+  height: 130px;
+  width: 100%;
+  background-color: #C84C4E;
+
+}
+
+header div{
+  justify-content: space-between;
+  display: block;
+}
+
+.main-header{
+  background-color: #c84c4e;
+  overflow: hidden;
+}
+
+.main-logo {
+	width: 200px;
+	position: absolute;
+  top: 60px;
+	left: 55%;
+	transform: translate(-50%, -60px);
+}
+
+.header-nav{
+  overflow: hidden;
+}
+
+.search-icon{
+  width: 40px;
+	position: absolute;
+  top: 100px;
+	left: 89%;
+	transform: translate(-50%, -60px);
+}
+
+.hamburger-icon{
+  width: 40px;
+	position: absolute;
+  top: 100px;
+	left: 8%;
+	transform: translate(-50%, -60px);
+}
+
+.hamburger-icon button{
+  border-radius: 5px;
+}
+
+.search-icon button{
+  border-radius: 5px;
+}
+
+.search-bar{
+  display: none;
+}
+
+.sesion{
+  display: none;
+}
+
+
+
+
+
+@media (min-width: 768px) {
+  .main-logo {
+  	width: 100px;
+    display: block;
+  }
+
+  .main-logo img{
+    width: 100px;
+  }
+
+  .hamburger-icon{
+    display: none;
+  }
+
+  .search-icon{
+    display: none;
+  }
+
+  .search-bar{
+    display: block;
+    top: 25px;
+    left: 20%;
+  }
+
+  .search-bar input{
+    width: 200px;
+    height: 35px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+
+  .search-bar button{
+    width: 40px;
+    height: 35px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+
+  .sesion{
+    display: block;
+    position: absolute;
+    left: 70%;
+    top: 20px;
+    text-decoration: none;
+  }
+
+  .sesion a{
+    padding: 30px;
+  }
+
+}

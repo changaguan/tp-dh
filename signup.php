@@ -1,8 +1,5 @@
 <?php
-include_once("models/db.php");
-include_once("models/auth.php");
-include_once("models/validator.php");
-require_once("models/user.php");
+require_once("config.php");
 
 $auth = new Auth();
 $validator = new Validator();
@@ -65,10 +62,15 @@ if ($_POST) {
 // 		$errorUsuario = "Debe elegir un nombre de usuario.<br>";
 // 	}else if(strlen($usuario) < 4 || strlen($usuario) > 8) {
 // 		$errorUsuario = "El usuario debe tener entre 4 y 8 caracteres.<br>";
+// 	}
+
+// 	if(empty($usuario)) {
+// 		$errorUsuario = "Debe elegir un nombre de usuario.<br>";
+// 	}else if(strlen($usuario) < 4 || strlen($usuario) > 8) {
+// 		$errorUsuario = "El usuario debe tener entre 4 y 8 caracteres.<br>";
 //	}else if(preg_match($expresion, $usuario)) {
 //		$errorUsuario = "El usuario solo debe contener letras y/o números.<br>";
 //	}
-
 //
 // 	if(empty($nombre)) {
 // 		$errorNombre = "El nombre es necesario.<br>";
@@ -182,31 +184,31 @@ if ($_POST) {
 						<div class="form-group">
 							<label for="">Nombre de usuario:</label>
 							<input type="text" value="<?php $usernameDefault?>" class="form-control" name="username">
-							<span style="color:red; font-size:12px;"> <?php echo $errores["username"]; ?> </span>
+							<span style="color:red; font-size:12px;"> <?php if(isset($errores["username"])){echo $errores["username"];}; ?> </span>
 						</div>
 
 						<div class="form-group">
 							<label for="">Nombre:</label>
 							<input type="text" value="<?php $nameDefault ?>" class="form-control" name="name">
-							<span style="color:red; font-size:12px;"> <?php echo $errores["name"]; ?> </span>
+							<span style="color:red; font-size:12px;"> <?php if(isset($errores["name"])){echo $errores["name"];} ; ?> </span>
 						</div>
 
 						<div class="form-group">
 							<label for="">Correo electrónico:</label>
 							<input type="email" value="<?php $emailDefault ?>" class="form-control" name="email" placeholder="user@email.com">
-							<span style="color:red; font-size:12px;"> <?= $errores["email"]; ?> </span>
+							<span style="color:red; font-size:12px;"> <?php if(isset($errores["email"])){echo $errores["email"];} ; ?> </span>
 						</div>
 
 						<div class="form-group">
 							<label for="">Contraseña:</label>
 							<input type="password" class="form-control" name="password" value="<?php echo ""; ?>">
-							<span style="color:red; font-size:12px;"> <?php echo $errores["password"]; ?> </span>
+							<span style="color:red; font-size:12px;"> <?php if(isset($errores["password"])){echo $errores["password"];} ; ?> </span>
 						</div>
 
 						<div class="form-group">
 							<label for="">Repite contraseña:</label>
 							<input type="password" class="form-control" name="userRepeatPassword" value="<?php echo ""; ?>">
-							<span style="color:red; font-size:12px;"> <?php echo $errores["cpassword"]; ?> </span>
+							<span style="color:red; font-size:12px;"> <?php if(isset($errores["cpassword"])){echo $errores["cpassword"];} ; ?> </span>
 							<br>
 						</div>
 
@@ -215,7 +217,7 @@ if ($_POST) {
 							<div class="custom-file">
 								<input type="file" class="custom-file-input" accept="image/jpeg" name="userAvatar">
 							  <label class="custom-file-label" for="customFile">Elegir imagen</label>
-								<span style="color:red; font-size:12px;"> <?php echo $errorAvatar; ?> </span>
+								<span style="color:red; font-size:12px;"> <?php if(isset($errorAvatar)){echo $errorAvatar;} ; ?> </span>
 							</div>
 							<br><br>
 
@@ -233,9 +235,9 @@ if ($_POST) {
 									<option>Venezuela</option>
 								</select>
 
-							<br><br>
-							<label><input type="checkbox"> Acepto los <a href= "terminosycondiciones.php">términos y condiciones</a>.</label>
-							<br><br>
+								<br><br>
+								<label><input type="checkbox"> Acepto los <a href= "terminosycondiciones.php">términos y condiciones</a>.</label>
+								<br><br>
 
 							<div class="row justify-content-center">
 								<button type="submit" class="btn btn-primary btn-lg">Registrarse</button>
