@@ -1,7 +1,10 @@
 <?php require_once("config.php");
-
 // $user = $db->traerPorUsuario($_GET["username"]);
+if($auth->estaLogueado()==false){
+  header("location:index.php");exit;
+}
 $user = $db->traerPorMail($_SESSION["logueado"]);
+
 ?>
 
 <!DOCTYPE html>
@@ -35,13 +38,13 @@ $user = $db->traerPorMail($_SESSION["logueado"]);
                       </div>
                       <div class="col-md-4">
 
-                          <div class="imagenperfil" style="background-image: url('images/default-profile.jpg')"></div>
+                          <div class="imagenperfil" style="background-image: url('avatars/<?php echo $user->getAvatar() ?>')"></div>
                       </div>
                   </div>
 
               </div>
               <div class="opciones">
-<img src="avatars/<?php echo $user->getAvatar() ?>" width="100">
+<!-- <img src="avatars/<?php //echo $user->getAvatar() ?>" width="100"> -->
                   <div class="opcion">
                     <a href= "">Notificaciones</a>
                   </div>
@@ -67,16 +70,6 @@ $user = $db->traerPorMail($_SESSION["logueado"]);
           </div>
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-
 
     <!-- --------------- -->
 

@@ -18,9 +18,9 @@ if ($_POST) {
 
 } */
 require_once("config.php");
-
 if($auth->estaLogueado()){
   header("location:index.php");exit;
+  $user = $db->traerPorMail($_SESSION["logueado"]);
 }
 
 $errores = [];

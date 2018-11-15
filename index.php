@@ -1,4 +1,9 @@
-<?php require_once("config.php"); ?>
+<?php require_once("config.php");
+if ($auth->estaLogueado()) {
+  $user = $db->traerPorMail($_SESSION["logueado"]);
+}
+ ?>
+
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -173,5 +178,9 @@
 
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.bundle.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

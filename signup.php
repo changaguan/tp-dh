@@ -1,5 +1,10 @@
 <?php
 require_once("config.php");
+if($auth->estaLogueado()){
+  header("location:index.php");exit;
+  $user = $db->traerPorMail($_SESSION["logueado"]);
+}
+
 
 $usernameDefault = "";
 $nameDefault = "";
