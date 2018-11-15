@@ -1,7 +1,7 @@
 <?php require_once("config.php");
 // $user = $db->traerPorUsuario($_GET["username"]);
 if($auth->estaLogueado()==false){
-  header("location:index.php");exit;
+  header("location:login.php");exit;
 }
 $user = $db->traerPorMail($_SESSION["logueado"]);
 

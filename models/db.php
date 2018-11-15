@@ -64,7 +64,7 @@ class DB{
 
 			$usuario = new User($userDB["username"], $userDB["name"], $userDB["email"], $userDB["password"], $userDB["country"], $userDB["id"]);
 			$usuario->setAvatar($userDB["avatar"]);
-			
+
 			return $usuario;
 		} else {
 			return NULL;

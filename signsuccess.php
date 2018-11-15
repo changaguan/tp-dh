@@ -42,7 +42,7 @@ if ($auth->estaLogueado()) {
               <button type="button" class="btn btn-primary ml-auto login" data-toggle="modal" data-target="#myModal"><a href="index.php" style="color:white;">Inicio</a></button>
             </div>
             <div class="col-md-6">
-              <button type="button" class="btn btn-primary ml-auto login" data-toggle="modal" data-target="#myModal"><a href="<?php //"profile.php?username=". $username->getUsername() ?>" style="color:white;">Perfil</a></button>
+              <button type="button" class="btn btn-primary ml-auto login" data-toggle="modal" data-target="#myModal"><a href="profile.php" style="color:white;">Perfil</a></button>
             </div>
           </div>
         </div>

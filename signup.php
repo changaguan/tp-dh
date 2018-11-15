@@ -4,8 +4,6 @@ if($auth->estaLogueado()){
   header("location:index.php");exit;
   $user = $db->traerPorMail($_SESSION["logueado"]);
 }
-
-
 $usernameDefault = "";
 $nameDefault = "";
 $emailDefault = "";
@@ -16,137 +14,20 @@ if ($_POST) {
 	if (!isset($errores["username"])) {
 		$usernameDefault = $_POST["username"];
 	}
-
 	if (!isset($errores["name"])) {
 		$nameDefault = $_POST["name"];
 	}
-
 	if (!isset($errores["email"])) {
 		$emailDefault = $_POST["email"];
 	}
-
 	if (count($errores) == 0) {
 		$usuario = new User($_POST["username"], $_POST["name"], $_POST["email"], $_POST["password"],$_POST["country"]);
-
 		$imageName = $usuario->guardarAvatar($_FILES, $usuario->getEmail());
 		$usuario->setAvatar($imageName);
 		$username = $db->guardarUsuario($usuario);
-
 		header("location:signsuccess.php");exit;
 		//header("Location:profile.php?username=" . $username->getUsername());exit;
 	}
-
-// $usuario = "";
-// $nombre = "";
-// $email = "";
-// $contrasena = "";
-// $repcontrasena = "";
-// $avatar="";
-// $pais="";
-// $errorUsuario = "";
-// $errorNombre = "";
-// $errorEmail = "";
-// $errorContrasena = "";
-// $errorRepContrasena = "";
-// $errorAvatar = "";
-// $hasta="";
-// $expresion = '/^[A-Z]{2}-[0-9]{4}$/';
-
-
-// 	$usuario = trim($_POST['userName']);
-// 	$nombre = trim($_POST['userFirstName']);
-// 	$email = trim($_POST['userEmail']);
-// 	$contrasena = trim($_POST['userPassword']);
-// 	$repcontrasena = trim($_POST['userRepeatPassword']);
-// 	$pais = trim($_POST['userCountry']);
-//
-// 	if(empty($usuario)) {
-// 		$errorUsuario = "Debe elegir un nombre de usuario.<br>";
-// 	}else if(strlen($usuario) < 4 || strlen($usuario) > 8) {
-// 		$errorUsuario = "El usuario debe tener entre 4 y 8 caracteres.<br>";
-// 	}
-
-// 	if(empty($usuario)) {
-// 		$errorUsuario = "Debe elegir un nombre de usuario.<br>";
-// 	}else if(strlen($usuario) < 4 || strlen($usuario) > 8) {
-// 		$errorUsuario = "El usuario debe tener entre 4 y 8 caracteres.<br>";
-//	}else if(preg_match($expresion, $usuario)) {
-//		$errorUsuario = "El usuario solo debe contener letras y/o números.<br>";
-//	}
-//
-// 	if(empty($nombre)) {
-// 		$errorNombre = "El nombre es necesario.<br>";
-// 	}else if(strlen($nombre) < 4 || strlen($nombre) > 15) {
-// 		$errorNombre = "El nombre debe tener entre 4 y 15 letras.<br>";
-// 	}else if(!ctype_alpha($nombre)){
-// 			$errorNombre = "El nombre sólo puede contener letras.";
-// 	}
-//
-// 	if(empty($email)) {
-// 		$errorEmail = "El email es obligatorio. <br>";
-// 	}else if(filter_var($email, FILTER_VALIDATE_EMAIL) == false) {
-// 		$errorEmail = "Formato de email inválido.";
-// 	}
-//
-// 	if(empty($contrasena) || strlen($contrasena) < 4){
-// 		$errorContrasena = "La contraseña debe tener más de 4 caracteres.";
-// 	}
-//
-// 	if (empty($repcontrasena)) {
-// 		$errorRepContrasena = "Este campo esta vacío.<br>";
-// 	}
-//
-// 	if ($contrasena != $repcontrasena) {
-// 		$errorRepContrasena = "Las contraseñas no coinciden.<br>";
-// 	}
-//
-// 	if(empty($errorUsuario) && empty($errorNombre) && empty($errorEmail)){
-//       //puedo encriptar la contraseña
-//       $contrasena = password_hash($contrasena,PASSWORD_DEFAULT);
-
-      //puedo verificar si la contraseña es la misma que la que ya tengo
-      //password_verify($contrasena,$passHasheada);
-
-      //puedo agradecer por completar el formulario de manera valida
-      //echo "<h1>Registro exitoso</h1>";
-
-      //puedo redirigir a otro lugar del sitio
-      //header('Location:home.php');
-	//	}
-
-	// if($_FILES['userAvatar']['error'] == UPLOAD_ERR_OK) {
-	// 	$desde = $_FILES['userAvatar']['tmp_name'];
-	// 	$archivo = uniqid();
-	// 	$ext = pathinfo($_FILES['userAvatar']['name'],PATHINFO_EXTENSION);
-	// 	if($ext == 'jpg' || $ext == 'png' || $ext == 'jpeg'){
-	// 		$hasta = "avatars/".$archivo.".".$ext;
-	// 		move_uploaded_file($desde,$hasta);
-	// 	}else{
-	// 		$errorImg = "Formato inválido de imagen.";
-	// 	}
-	// }else{
-	// 	$errorImg = "No se pudo cargar la imagen.";
-	// }
-	//
-	// $avatar = trim($hasta);
-
-	// if (empty($errorUsuario) && empty($errorNombre) && empty($errorEmail) && empty($errorContrasena) &&empty($errorRepContrasena&&empty($errorAvatar))) {
-	// 	$stmt = $conn->prepare("
-	//     INSERT INTO users (username, name, email, password, avatar, country)
-	//       VALUES (:username, :name, :email, :password, :avatar, :country)
-	//       ");
-	//   $stmt->bindValue(':username', $usuario, PDO::PARAM_STR);
-	//   $stmt->bindValue(':name', $nombre, PDO::PARAM_STR);
-	//   $stmt->bindValue(':email', $email, PDO::PARAM_INT);
-	//   $stmt->bindValue(':password', $contrasena, PDO::PARAM_STR);
-	//  	$stmt->bindValue(':avatar', $avatar, PDO::PARAM_STR);
-	//   $stmt->bindValue(':country', $pais, PDO::PARAM_STR);
-	//
-	//   $stmt->execute();
-	//
-	// 	header("location: signsuccess.php"); exit;
-	//}
-
 }
 
  ?>
@@ -185,19 +66,19 @@ if ($_POST) {
 
 						<div class="form-group">
 							<label for="">Nombre de usuario:</label>
-							<input type="text" value="<?php $usernameDefault?>" class="form-control" name="username">
+							<input type="text" value="<?php echo $usernameDefault?>" class="form-control" name="username">
 							<span style="color:red; font-size:12px;"> <?php if(isset($errores["username"])){echo $errores["username"];}; ?> </span>
 						</div>
 
 						<div class="form-group">
 							<label for="">Nombre:</label>
-							<input type="text" value="<?php $nameDefault ?>" class="form-control" name="name">
+							<input type="text" value="<?php echo $nameDefault ?>" class="form-control" name="name">
 							<span style="color:red; font-size:12px;"> <?php if(isset($errores["name"])){echo $errores["name"];} ; ?> </span>
 						</div>
 
 						<div class="form-group">
 							<label for="">Correo electrónico:</label>
-							<input type="email" value="<?php $emailDefault ?>" class="form-control" name="email" placeholder="user@email.com">
+							<input type="email" value="<?php echo $emailDefault ?>" class="form-control" name="email" placeholder="user@email.com">
 							<span style="color:red; font-size:12px;"> <?php if(isset($errores["email"])){echo $errores["email"];} ; ?> </span>
 						</div>
 
@@ -333,3 +214,117 @@ if ($_POST) {
 
   </body>
 </html>
+
+<?php
+// $usuario = "";
+// $nombre = "";
+// $email = "";
+// $contrasena = "";
+// $repcontrasena = "";
+// $avatar="";
+// $pais="";
+// $errorUsuario = "";
+// $errorNombre = "";
+// $errorEmail = "";
+// $errorContrasena = "";
+// $errorRepContrasena = "";
+// $errorAvatar = "";
+// $hasta="";
+// $expresion = '/^[A-Z]{2}-[0-9]{4}$/';
+
+
+// 	$usuario = trim($_POST['userName']);
+// 	$nombre = trim($_POST['userFirstName']);
+// 	$email = trim($_POST['userEmail']);
+// 	$contrasena = trim($_POST['userPassword']);
+// 	$repcontrasena = trim($_POST['userRepeatPassword']);
+// 	$pais = trim($_POST['userCountry']);
+//
+// 	if(empty($usuario)) {
+// 		$errorUsuario = "Debe elegir un nombre de usuario.<br>";
+// 	}else if(strlen($usuario) < 4 || strlen($usuario) > 8) {
+// 		$errorUsuario = "El usuario debe tener entre 4 y 8 caracteres.<br>";
+// 	}
+
+// 	if(empty($usuario)) {
+// 		$errorUsuario = "Debe elegir un nombre de usuario.<br>";
+// 	}else if(strlen($usuario) < 4 || strlen($usuario) > 8) {
+// 		$errorUsuario = "El usuario debe tener entre 4 y 8 caracteres.<br>";
+//	}else if(preg_match($expresion, $usuario)) {
+//		$errorUsuario = "El usuario solo debe contener letras y/o números.<br>";
+//	}
+//
+// 	if(empty($nombre)) {
+// 		$errorNombre = "El nombre es necesario.<br>";
+// 	}else if(strlen($nombre) < 4 || strlen($nombre) > 15) {
+// 		$errorNombre = "El nombre debe tener entre 4 y 15 letras.<br>";
+// 	}else if(!ctype_alpha($nombre)){
+// 			$errorNombre = "El nombre sólo puede contener letras.";
+// 	}
+//
+// 	if(empty($email)) {
+// 		$errorEmail = "El email es obligatorio. <br>";
+// 	}else if(filter_var($email, FILTER_VALIDATE_EMAIL) == false) {
+// 		$errorEmail = "Formato de email inválido.";
+// 	}
+//
+// 	if(empty($contrasena) || strlen($contrasena) < 4){
+// 		$errorContrasena = "La contraseña debe tener más de 4 caracteres.";
+// 	}
+//
+// 	if (empty($repcontrasena)) {
+// 		$errorRepContrasena = "Este campo esta vacío.<br>";
+// 	}
+//
+// 	if ($contrasena != $repcontrasena) {
+// 		$errorRepContrasena = "Las contraseñas no coinciden.<br>";
+// 	}
+//
+// 	if(empty($errorUsuario) && empty($errorNombre) && empty($errorEmail)){
+//       //puedo encriptar la contraseña
+//       $contrasena = password_hash($contrasena,PASSWORD_DEFAULT);
+
+      //puedo verificar si la contraseña es la misma que la que ya tengo
+      //password_verify($contrasena,$passHasheada);
+
+      //puedo agradecer por completar el formulario de manera valida
+      //echo "<h1>Registro exitoso</h1>";
+
+      //puedo redirigir a otro lugar del sitio
+      //header('Location:home.php');
+	//	}
+
+	// if($_FILES['userAvatar']['error'] == UPLOAD_ERR_OK) {
+	// 	$desde = $_FILES['userAvatar']['tmp_name'];
+	// 	$archivo = uniqid();
+	// 	$ext = pathinfo($_FILES['userAvatar']['name'],PATHINFO_EXTENSION);
+	// 	if($ext == 'jpg' || $ext == 'png' || $ext == 'jpeg'){
+	// 		$hasta = "avatars/".$archivo.".".$ext;
+	// 		move_uploaded_file($desde,$hasta);
+	// 	}else{
+	// 		$errorImg = "Formato inválido de imagen.";
+	// 	}
+	// }else{
+	// 	$errorImg = "No se pudo cargar la imagen.";
+	// }
+	//
+	// $avatar = trim($hasta);
+
+	// if (empty($errorUsuario) && empty($errorNombre) && empty($errorEmail) && empty($errorContrasena) &&empty($errorRepContrasena&&empty($errorAvatar))) {
+	// 	$stmt = $conn->prepare("
+	//     INSERT INTO users (username, name, email, password, avatar, country)
+	//       VALUES (:username, :name, :email, :password, :avatar, :country)
+	//       ");
+	//   $stmt->bindValue(':username', $usuario, PDO::PARAM_STR);
+	//   $stmt->bindValue(':name', $nombre, PDO::PARAM_STR);
+	//   $stmt->bindValue(':email', $email, PDO::PARAM_INT);
+	//   $stmt->bindValue(':password', $contrasena, PDO::PARAM_STR);
+	//  	$stmt->bindValue(':avatar', $avatar, PDO::PARAM_STR);
+	//   $stmt->bindValue(':country', $pais, PDO::PARAM_STR);
+	//
+	//   $stmt->execute();
+	//
+	// 	header("location: signsuccess.php"); exit;
+	//}
+
+  ?>
