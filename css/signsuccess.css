@@ -1,0 +1,33 @@
+.mensajesuccess {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.imagensuccess {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.linksinicioperfil {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.col-md-12 {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.col-md-6 button {
+  border-radius: 10px;
+  background-color: #CB472B;
+  border-color: #B84229;
+}
+
+.col-md-6 button:hover {
+  background-color: #AB432C;
+  border-color: #B84229;
+  text-decoration: none;

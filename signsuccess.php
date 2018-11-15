@@ -1,4 +1,4 @@
-<?php require_once("config.php"); ?>
+<?php require_once 'config.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/forms.css">
+    <link rel="stylesheet" href="css/signsuccess.css">
+
   </head>
   <body>
       <!-- Header -->
@@ -18,12 +20,32 @@
       <?php include('main-nav.php') ?>
       <!-- --------------- -->
 
-      <strong>Perfecto!</strong> Su registro fue satisfactorio.
-      <br>
-      <img src="images/successwhite.jpg">
-      <br>
-      <a href="index.php"> Volver al inicio </a>
-      <a href="profile.php"> Ir a Mi Perfil </a>
+
+
+      <div class="col-md-12">
+
+        <div class="mensajesuccess">
+          <strong>Perfecto! </strong> Su registro fue satisfactorio.
+        </div>
+
+        <div class="imagensuccess">
+          <img src="images/successwhite.jpg">
+        </div>
+
+        <div class="linksinicioperfil">
+          <div class="row">
+            <div class="col-md-6">
+              <button type="button" class="btn btn-primary ml-auto login" data-toggle="modal" data-target="#myModal"><a href="index.php" style="color:white;">Inicio</a></button>
+            </div>
+            <div class="col-md-6">
+              <button type="button" class="btn btn-primary ml-auto login" data-toggle="modal" data-target="#myModal"><a href="<?php //"profile.php?username=". $username->getUsername() ?>" style="color:white;">Perfil</a></button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
 
       <!-- --------------- -->
 
