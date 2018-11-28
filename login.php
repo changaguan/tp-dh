@@ -37,6 +37,12 @@ if ($_POST) {
   }
 }
 
+if (!empty($_POST["remember"])) {
+  setcookie ("email",$_POST["email"],time()+(10*365*24*60*60));
+  setcookie ("password",$_POST["password"],time()+(10*365*24*60*60));
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -74,19 +80,19 @@ if ($_POST) {
 
      					<div class="form-group">
      						<label for="">Nombre de usuario / Email:</label>
-     						<input type="text" value="<?php  /*echo $usuario;*/ ?>" class="form-control" name="email">
+     						<input type="text" value="<?php  if(isset($_COOKIE["email"])) ?>" class="form-control" name="email">
      						<span style="color:red; font-size:12px;"> <?php  if(isset($errores["mail"])){echo $errores["mail"];} ?> </span>
      					</div>
 
      					<div class="form-group">
      						<label for="">Contraseña:</label>
-     						<input type="password" class="form-control" name="password">
+     						<input type="password" class="form-control" name="password" value="<?php if(isset($_COOKIE["password"])) ?>">
      						<span style="color:red; font-size:12px;"> <?php  if(isset($errores["password"])){echo $errores["password"];} ?> </span>
      					</div>
 
 							<a href= "">¿Ha olvidado su contraseña?</a>
 							<br><br>
-							<label><input type=  "checkbox"> Mantener mi sesión iniciada.</label>
+							<label><input type="checkbox" name="remember"> Mantener mi sesión iniciada.</label>
 
               <br><br>
 
@@ -112,6 +118,11 @@ if ($_POST) {
     <?php include('main-footer.php') ?>
     <!-- --------------- -->
 
-
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.bundle.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
